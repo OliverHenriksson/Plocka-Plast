@@ -15,7 +15,7 @@ public class TrashScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             for (int i = 0; i < 10; i++)
             {
@@ -31,7 +31,7 @@ public class TrashScript : MonoBehaviour
                 yes = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 Destroy(gameObject);
             }
