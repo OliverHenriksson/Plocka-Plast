@@ -37,4 +37,15 @@ public class TrashScript : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if(gameObject.name != "Plast")
+        {
+            if (col.gameObject.name == "Player" && Input.GetKeyDown(KeyCode.Space))
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }

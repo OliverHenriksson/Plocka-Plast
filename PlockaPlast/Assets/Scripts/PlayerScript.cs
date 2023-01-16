@@ -8,8 +8,6 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody2D rb2d;
     private Vector2 moveInput;
 
-    public float _time;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,20 +28,5 @@ public class PlayerScript : MonoBehaviour
         moveInput.Normalize();
 
         rb2d.velocity = moveInput * moveSpeed;
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.gameObject.tag == "Plast" && Input.GetKeyDown(KeyCode.Space))
-        {
-            _time = Time.time;
-
-            if (_time > 10)
-            {
-                _time = 0;
-            }
-
-            Debug.Log("Ye");
-        }
     }
 }
