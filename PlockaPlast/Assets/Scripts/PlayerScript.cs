@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
     public float moveSpeed;
     public Rigidbody2D rb2d;
     private Vector2 moveInput;
+
+    public static int plast;
+    public static bool stop;
+
+    public Image circ;
 
     // Start is called before the first frame update
     void Start()
@@ -17,16 +23,27 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        circ.fillAmount =  / 2;
     }
 
     private void FixedUpdate()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
+        if(stop != true)
+        {
+            moveInput.x = Input.GetAxisRaw("Horizontal");
+            moveInput.y = Input.GetAxisRaw("Vertical");
 
-        moveInput.Normalize();
+            moveInput.Normalize();
 
-        rb2d.velocity = moveInput * moveSpeed;
+            rb2d.velocity = moveInput * moveSpeed;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Plast")
+        {
+
+        }
     }
 }
