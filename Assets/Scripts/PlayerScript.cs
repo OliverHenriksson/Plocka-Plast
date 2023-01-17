@@ -12,12 +12,12 @@ public class PlayerScript : MonoBehaviour
     public static int plast;
     public static int bag;
     public static bool stop;
-    public static int Slevel;
-    public static int Blevel;
-    public static int Hlevel;
+    public static int Slevel = 1;
+    public static int Blevel = 1;
+    public static int Hlevel = 1;
 
     public Image circ;
-    public Image shop;
+    public GameObject shop;
 
     public float t2;
     bool thing;
@@ -29,7 +29,7 @@ public class PlayerScript : MonoBehaviour
     {
         t2 = 0;
         bag = 10;
-        shop.enabled = false;
+        shop.SetActive(false);
     }
 
     // Update is called once per frame
@@ -59,7 +59,7 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            shop.enabled = false;
+            shop.SetActive(false);
         }
     }
 
@@ -86,11 +86,16 @@ public class PlayerScript : MonoBehaviour
         if (col.gameObject.tag == "Plast" && Input.GetKeyDown(KeyCode.Space) && TrashScript.no == false)
         {
             thing = true;
-
-            if (col.gameObject.tag == "Shop")
-            {
-                shop.enabled = true;
-            }
         }
+
+        if (col.gameObject.tag == "Shop")
+        {
+            shop.SetActive(true);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 }
