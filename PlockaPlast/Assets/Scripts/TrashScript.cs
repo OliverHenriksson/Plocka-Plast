@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TrashScript : MonoBehaviour
 {
     bool yes;
 
     public float t;
+    public static float pickupTime = 2;
     bool timestart;
+    public static bool no;
+    public bool no2;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class TrashScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        no2 = no;
         if(timestart == true)
         {
             PlayerScript.stop = true;
@@ -29,7 +32,7 @@ public class TrashScript : MonoBehaviour
             t = 0;
         }
 
-        if (t >= 2)
+        if (t >= pickupTime)
         {
             PlayerScript.stop = false;
             timestart = false;
@@ -66,7 +69,7 @@ public class TrashScript : MonoBehaviour
     {
         if(gameObject.name != "Plast")
         {
-            if (col.gameObject.name == "Player" && Input.GetKeyDown(KeyCode.Space))
+            if (col.gameObject.name == "Player" && Input.GetKeyDown(KeyCode.Space) && no == false)
             {
                 timestart = true;
             }
