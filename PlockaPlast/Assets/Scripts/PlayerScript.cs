@@ -5,26 +5,62 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float moveSpeed;
+    public static float moveSpeed = 7;
     public Rigidbody2D rb2d;
     private Vector2 moveInput;
 
     public static int plast;
+    public static int bag;
     public static bool stop;
+    public static int Slevel;
+    public static int Blevel;
+    public static int Hlevel;
 
     public Image circ;
-    float t2;
+    public Image shop;
+
+    public float t2;
+    bool thing;
+
+    public static int money = 1000;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        t2 = 0;
+        bag = 10;
+        shop.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(thing == true)
+        {
+            t2 += Time.deltaTime;
+        }
+
+        if(t2 >= 2)
+        {
+            t2 = 0;
+            thing = false;
+        }
+
         circ.fillAmount = t2 / 2;
+
+        if(plast == bag)
+        {
+            TrashScript.no = true;
+        }
+        else
+        {
+            TrashScript.no = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            shop.enabled = false;
+        }
     }
 
     private void FixedUpdate()
@@ -47,9 +83,14 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if(col.gameObject.tag == "Plast")
+        if (col.gameObject.tag == "Plast" && Input.GetKeyDown(KeyCode.Space) && TrashScript.no == false)
         {
-            t2 = col.gameObject.GetComponent<TrashScript>().t;
+            thing = true;
+
+            if (col.gameObject.tag == "Shop")
+            {
+                shop.enabled = true;
+            }
         }
     }
 }
