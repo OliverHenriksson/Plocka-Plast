@@ -46,6 +46,7 @@ public class Text : MonoBehaviour
         {
             PlayerScript.moveSpeed += 2;
             PlayerScript.money -= price1;
+            PlayerScript.Slevel++;
             price1 += 100;
         }
     }
@@ -56,6 +57,7 @@ public class Text : MonoBehaviour
         {
             PlayerScript.bag += 5;
             PlayerScript.money -= price2;
+            PlayerScript.Blevel++;
             price2 += 100;
         }
     }
@@ -66,6 +68,7 @@ public class Text : MonoBehaviour
         {
             TrashScript.pickupTime -= 0.1f;
             PlayerScript.money -= price3;
+            PlayerScript.Hlevel++;
             price3 += 100;
         }
     }
