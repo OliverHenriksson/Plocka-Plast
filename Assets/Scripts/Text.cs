@@ -7,6 +7,7 @@ using TMPro;
 public class Text : MonoBehaviour
 {
     public TMP_Text plastText;
+    public TMP_Text money;
 
     public TMP_Text levelS;
     public TMP_Text levelB;
@@ -38,6 +39,8 @@ public class Text : MonoBehaviour
         p1.text = "" + price1;
         p2.text = "" + price2;
         p3.text = "" + price3;
+
+        money.text = PlayerScript.money + " Money";
     }
 
     public void BuyS()

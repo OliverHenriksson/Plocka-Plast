@@ -94,8 +94,15 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D col)
     {
-        
+        if(col.gameObject.tag == "Sell")
+        {
+            for (int i = 0; i < plast; i++)
+            {
+                money++;
+                plast--;
+            }
+        }
     }
 }
