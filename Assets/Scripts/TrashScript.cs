@@ -12,6 +12,8 @@ public class TrashScript : MonoBehaviour
     public static bool no;
     public bool no2;
 
+    public GameObject parent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,14 @@ public class TrashScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(parent.transform.childCount == 0)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Instantiate(gameObject);
+            }
+        }
+
         no2 = no;
         if(timestart == true)
         {
@@ -50,6 +60,8 @@ public class TrashScript : MonoBehaviour
 
         if (gameObject.name != "Plast")
         {
+            gameObject.transform.SetParent(parent.transform);
+
             gameObject.tag = "Plast";
 
             if(yes == false)
