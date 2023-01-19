@@ -35,11 +35,6 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            money += 100;
-        }
-
         if(thing == true) //Startar  -Oliver
         {
             t2 += Time.deltaTime;
