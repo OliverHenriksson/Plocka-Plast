@@ -30,6 +30,7 @@ public class Text : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Ändrar all text som finns på UIn -Morgan
         plastText.text = PlayerScript.plast + " / " + PlayerScript.bag;
 
         levelS.text = "Level " + PlayerScript.Slevel;
@@ -43,7 +44,7 @@ public class Text : MonoBehaviour
         money.text = PlayerScript.money + " Money";
     }
 
-    public void BuyS()
+    public void BuyS() //Vad som ska hända när man köper speed -Oliver
     {
         if (PlayerScript.money >= price1)
         {
@@ -54,7 +55,7 @@ public class Text : MonoBehaviour
         }
     }
 
-    public void BuyB()
+    public void BuyB() //Vad som ska hända när man köper bag -Oliver
     {
         if(PlayerScript.money >= price2)
         {
@@ -65,7 +66,7 @@ public class Text : MonoBehaviour
         }
     }
 
-    public void BuyH()
+    public void BuyH() //Vad som ska hända när man köper pickup speed -Oliver
     {
         if(PlayerScript.money >= price3)
         {
