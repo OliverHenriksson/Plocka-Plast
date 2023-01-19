@@ -17,16 +17,14 @@ public class Text : MonoBehaviour
     public TMP_Text p2;
     public TMP_Text p3;
 
-    public static int price1;
-    public static int price2;
-    public static int price3;
+    public static int price1 = 100;
+    public static int price2 = 50;
+    public static int price3 = 100;
 
     // Start is called before the first frame update
     void Start()
     {
-        price1 = 100;
-        price2 = 50;
-        price3 = 100;
+
     }
 
     // Update is called once per frame

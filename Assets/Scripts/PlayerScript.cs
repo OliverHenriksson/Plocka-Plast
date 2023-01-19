@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     private Vector2 moveInput;
 
     public static int plast;
-    public static int bag;
+    public static int bag = 10;
     public static bool stop;
     public static int Slevel = 1;
     public static int Blevel = 1;
@@ -28,7 +28,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         t2 = 0;
-        bag = 10;
+        //bag = 10;
         shop.SetActive(false);
     }
 
