@@ -29,7 +29,7 @@ public class TrashScript : MonoBehaviour
     {
         if(parent.transform.childCount == 0) //Om det inte finns kloner så spawnar den fler
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 30; i++)
             {
                 Instantiate(gameObject);
             }
@@ -64,7 +64,7 @@ public class TrashScript : MonoBehaviour
 
             if(yes == false)  //Gör så att påsen spawnar på en random plats
             {
-                transform.position = new Vector2(Random.Range(-8.5f, 8.5f), Random.Range(-4.5f, 4.5f));
+                transform.position = new Vector2(Random.Range(-9.1f, 70.5f), Random.Range(-26.2f, 38.9f));
                 yes = true;
             }
         }
