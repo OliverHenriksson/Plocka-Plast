@@ -53,7 +53,7 @@ public class PlayerScript : MonoBehaviour
 
         circ.fillAmount = t2 / 2;  //Fyller cirkeln -Oliver
 
-        if(plast == bag)  //Gör så att om man har en full bag så kan man inte plocka upp mer -Oliver
+        if(plast >= bag)  //Gör så att om man har en full bag så kan man inte plocka upp mer -Oliver
         {
             TrashScript.no = true;
         }
