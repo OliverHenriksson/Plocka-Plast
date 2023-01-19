@@ -35,20 +35,20 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(thing == true)
+        if(thing == true) //Startar  -Oliver
         {
             t2 += Time.deltaTime;
         }
 
-        if(t2 >= 2)
+        if(t2 >= TrashScript.pickupTime) //Gör så att cirkeln försvinner när du plockat upp något -Oliver
         {
             t2 = 0;
             thing = false;
         }
 
-        circ.fillAmount = t2 / 2;
+        circ.fillAmount = t2 / 2;  //Fyller cirkeln -Oliver
 
-        if(plast == bag)
+        if(plast == bag)  //Gör så att om man har en full bag så kan man inte plocka upp mer -Oliver
         {
             TrashScript.no = true;
         }
@@ -57,7 +57,7 @@ public class PlayerScript : MonoBehaviour
             TrashScript.no = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))  //Stänger shopen -Oliver
         {
             shop.SetActive(false);
         }
@@ -67,6 +67,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(stop != true)
         {
+            //Movement -Ian
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.y = Input.GetAxisRaw("Vertical");
 
@@ -83,12 +84,12 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Plast" && Input.GetKeyDown(KeyCode.Space) && TrashScript.no == false)
+        if (col.gameObject.tag == "Plast" && Input.GetKeyDown(KeyCode.Space) && TrashScript.no == false) //Gör så att cirkeln fylls när du plockar upp något -Oliver
         {
             thing = true;
         }
 
-        if (col.gameObject.tag == "Shop")
+        if (col.gameObject.tag == "Shop")  //Öppnar shopen -Oliver
         {
             shop.SetActive(true);
         }
@@ -96,9 +97,9 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Sell")
+        if(col.gameObject.tag == "Sell")  //Gör så att man kan sälja sin plast -Oliver
         {
-            for (int i = 0; i < plast; i++)
+            for (int i = 0; i < plast; i++) //Kollar hur mycket plast du har och ger dig pengar för dem -Oliver
             {
                 money++;
                 plast--;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TrashScript : MonoBehaviour
 {
+    //All kod här är av mig -Oliver
+
     bool yes;
 
     public float t;
@@ -13,17 +15,19 @@ public class TrashScript : MonoBehaviour
     public bool no2;
 
     public GameObject parent;
+    SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
+        sr.enabled = false;  //Gör påsen osynlig
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(parent.transform.childCount == 0)
+        if(parent.transform.childCount == 0) //Om det inte finns kloner så spawnar den fler
         {
             for (int i = 0; i < 10; i++)
             {
@@ -32,7 +36,7 @@ public class TrashScript : MonoBehaviour
         }
 
         no2 = no;
-        if(timestart == true)
+        if(timestart == true) //Startar tiden
         {
             PlayerScript.stop = true;
             t += Time.deltaTime;
@@ -42,7 +46,7 @@ public class TrashScript : MonoBehaviour
             t = 0;
         }
 
-        if (t >= pickupTime)
+        if (t >= pickupTime)  //När tiden är samma som tiden det ska ta att plocka upp något så plockar den upp plasten
         {
             PlayerScript.stop = false;
             timestart = false;
@@ -50,29 +54,18 @@ public class TrashScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (gameObject.name != "Plast")  //Allt som ska hända när det är en klon
         {
-            for (int i = 0; i < 10; i++)
-            {
-                Instantiate(gameObject);
-            }
-        }
+            sr.enabled = true;  //Gör så att man kan se den
 
-        if (gameObject.name != "Plast")
-        {
             gameObject.transform.SetParent(parent.transform);
 
-            gameObject.tag = "Plast";
+            gameObject.tag = "Plast";  //Ger tagen plast
 
-            if(yes == false)
+            if(yes == false)  //Gör så att påsen spawnar på en random plats
             {
                 transform.position = new Vector2(Random.Range(-8.5f, 8.5f), Random.Range(-4.5f, 4.5f));
                 yes = true;
-            }
-
-            if (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                Destroy(gameObject);
             }
         }
     }
@@ -81,7 +74,7 @@ public class TrashScript : MonoBehaviour
     {
         if(gameObject.name != "Plast")
         {
-            if (col.gameObject.name == "Player" && Input.GetKeyDown(KeyCode.Space) && no == false)
+            if (col.gameObject.name == "Player" && Input.GetKeyDown(KeyCode.Space) && no == false) //Gör så att man kan plocka upp plasten
             {
                 timestart = true;
             }
