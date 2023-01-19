@@ -62,7 +62,7 @@ public class Text : MonoBehaviour
             PlayerScript.bag += 5;
             PlayerScript.money -= price2;
             PlayerScript.Blevel++;
-            price2 += 100;
+            price2 += 50;
         }
     }
 
