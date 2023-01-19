@@ -35,11 +35,6 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            money += 100;
-        }
-
         if(thing == true) //Startar  -Oliver
         {
             t2 += Time.deltaTime;
@@ -53,7 +48,7 @@ public class PlayerScript : MonoBehaviour
 
         circ.fillAmount = t2 / 2;  //Fyller cirkeln -Oliver
 
-        if(plast == bag)  //Gör så att om man har en full bag så kan man inte plocka upp mer -Oliver
+        if(plast >= bag)  //Gör så att om man har en full bag så kan man inte plocka upp mer -Oliver
         {
             TrashScript.no = true;
         }
