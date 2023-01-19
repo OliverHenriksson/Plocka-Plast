@@ -14,6 +14,8 @@ public class CameraIsFollow : MonoBehaviour
     {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
         offset = transform.position - player.transform.position;
+
+        gameObject.GetComponent<Camera>().orthographicSize = 10; //Gör så att kameran inte är så inzoomad -Melvin
     }
 
     // LateUpdate is called after Update each frame
