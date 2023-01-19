@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     public float t2;
     bool thing;
 
-    public static int money = 1000;
+    public static int money;
 
     // Start is called before the first frame update
     void Start()
