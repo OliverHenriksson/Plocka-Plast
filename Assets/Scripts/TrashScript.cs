@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class TrashScript : MonoBehaviour
@@ -80,4 +81,6 @@ public class TrashScript : MonoBehaviour
             }
         }
     }
+
+    
 }
